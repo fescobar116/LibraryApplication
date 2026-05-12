@@ -9,7 +9,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import tools.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -33,31 +33,4 @@ class BookControllerTest {
         repository.deleteAll();
     }
 
-    @Test
-    void testCreateBook() throws Exception {
-    }
-
-    @Test
-    void testGetAllBooks() throws Exception {
-    }
-
-    @Test
-    void testGetBookById() throws Exception {
-    }
-
-    @Test
-    void testUpdateBook() throws Exception {
-    }
-
-    @Test
-    void testDeleteBook() throws Exception {
-    }
-
-    @Test
-    void testCreateInvalidBook() throws Exception {
-    }
-
-    @Test
-    void testUpdateInvalidBook() throws Exception {
-    }
 }
