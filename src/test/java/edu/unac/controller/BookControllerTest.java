@@ -26,10 +26,24 @@ class BookControllerTest {
     private BookRepository repository;
 
     @Autowired
-    private tools.jackson.databind.ObjectMapper objectMapper;
+    private ObjectMapper objectMapper;
 
     @BeforeEach
     void setup() {
         repository.deleteAll();
+    }
+
+    @Test
+    void testCreateBook() throws Exception {
+        //Arrange
+        Book book = new Book(null, "Don Quijote", "Cervantes", 1605);
+
+        //Act
+        mockMvc.perform(
+                post("/api/books")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(book))
+        ).andExpect(status().isOk())//Assert
+        .andExpect(jsonPath("$.title", is("Don Quijote")));
     }
 }
