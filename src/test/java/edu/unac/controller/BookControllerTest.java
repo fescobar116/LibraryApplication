@@ -46,4 +46,16 @@ class BookControllerTest {
         ).andExpect(status().isOk())//Assert
         .andExpect(jsonPath("$.title", is("Don Quijote")));
     }
+
+    @Test
+    void testGetAllBooks() throws Exception {
+        repository.save(new Book(null, "Don Quijote", "Cervantes", 1605));
+        repository.save(new Book(null, "Harry Potter", "J.K.", 1996));
+
+        mockMvc.perform(
+                get("/api/books")
+        ).andExpect(status().isOk())
+        .andExpect(jsonPath("$", hasSize(2)));
+        //.andExpect(jsonPath("$.[0].title", is("Don Quijote")));
+    }
 }
