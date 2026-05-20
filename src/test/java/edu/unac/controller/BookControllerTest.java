@@ -58,4 +58,24 @@ class BookControllerTest {
         .andExpect(jsonPath("$", hasSize(2)));
         //.andExpect(jsonPath("$.[0].title", is("Don Quijote")));
     }
+
+    @Test
+    void testGetBookById() throws Exception {
+    }
+
+    @Test
+    void testUpdateBook() throws Exception {
+    }
+
+    @Test
+    void testDeleteBook() throws Exception {
+    }
+
+    @Test
+    void testCreateInvalidBook() throws Exception {
+    }
+
+    @Test
+    void testUpdateInvalidBook() throws Exception {
+    }
 }
